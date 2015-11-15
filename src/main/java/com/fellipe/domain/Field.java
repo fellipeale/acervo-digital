@@ -4,8 +4,6 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -123,7 +121,8 @@ public class Field {
 		this.presentation = presentation;
 	}
 
-	@Enumerated(EnumType.STRING)
+	@ManyToOne
+	@JoinColumn(name = "fieldTypeKey")
 	public FieldType getFieldType() {
 		return fieldType;
 	}

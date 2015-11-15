@@ -82,7 +82,7 @@ public class ApplicationRecordTest {
 		field.setMultiple(false);
 		field.setMandatory(true);
 		field.setPresentation(true);
-		field.setFieldType(FieldType.STRING);
+//		field.setFieldType(FieldType.STRING);
 		
 		this.mvc.perform(post("/api/fields")
 				.content(asByteArray(field))

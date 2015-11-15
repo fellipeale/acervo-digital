@@ -33,10 +33,10 @@ public class StringValue extends Value {
 		if (field.getSize() != null && value.length() > field.getSize()) {
 			errors.add("{value.size}");
 		}
-		if (field.getRestrictions() != null && !containValue(field.getRestrictions())) {
+		if (field.getRestrictions() != null && field.getRestrictions().size() > 0 && !containValue(field.getRestrictions())) {
 			errors.add("{value.restriction}");
 		}
-		if (!field.getFieldType().equals(FieldType.STRING)) {
+		if (!field.getFieldType().getKey().equals("STRING")) {
 			errors.add("{value.type}");
 		}
 		

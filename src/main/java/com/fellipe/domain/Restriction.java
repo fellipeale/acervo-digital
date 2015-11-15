@@ -12,7 +12,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
 @Entity
 @JsonTypeInfo(property = "type", use = NAME, include = PROPERTY)
-@JsonSubTypes({ @JsonSubTypes.Type(value = StringRestriction.class, name = "string") })
+@JsonSubTypes({ @JsonSubTypes.Type(value = StringRestriction.class, name = "STRING") })
 public abstract class Restriction {
 
 	private Long id;

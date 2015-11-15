@@ -1,7 +1,6 @@
 package com.fellipe.config;
 
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -16,21 +15,21 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.inMemoryAuthentication()
-			.withUser("fellipe").password("fellipe").roles("USER")
-			.and()
-			.withUser("zeca").password("zeca").roles("ADMIN");
+			.withUser("user").password("user").roles("USER");
 	}
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.httpBasic().and().authorizeRequests()
-			.antMatchers(HttpMethod.GET, "/api/libraries/**").permitAll()
-			.antMatchers("/api/libraries/**").hasRole("USER")
-			.antMatchers(HttpMethod.GET, "/api/fields/**").permitAll()
-			.antMatchers("/api/fields/**").hasRole("ADMIN")
-			.antMatchers(HttpMethod.GET, "/api/records/**").permitAll()
-			.antMatchers("/api/records/**").hasRole("ADMIN")
-			.and().csrf().disable();
+		http.csrf().disable();
+		
+//		http.httpBasic().and().authorizeRequests()
+//			.antMatchers(HttpMethod.GET, "/api/libraries/**").permitAll()
+//			.antMatchers("/api/libraries/**").hasRole("USER")
+//			.antMatchers(HttpMethod.GET, "/api/fields/**").permitAll()
+//			.antMatchers("/api/fields/**").hasRole("USER")
+//			.antMatchers(HttpMethod.GET, "/api/records/**").permitAll()
+//			.antMatchers("/api/records/**").hasRole("USER")
+//			.and().csrf().disable();
 	}
 	
 }

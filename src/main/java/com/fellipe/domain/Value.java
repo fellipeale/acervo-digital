@@ -14,7 +14,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
 @Entity
 @JsonTypeInfo(property = "type", use = NAME, include = PROPERTY)
-@JsonSubTypes({ @JsonSubTypes.Type(value = StringValue.class, name = "string") })
+@JsonSubTypes({ @JsonSubTypes.Type(value = StringValue.class, name = "STRING") })
 public abstract class Value {
 
 	private Long id;
