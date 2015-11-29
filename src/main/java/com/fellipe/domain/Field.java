@@ -12,9 +12,11 @@ import javax.persistence.OneToMany;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.annotations.Where;
 import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
+@Where(clause = "active = 1")
 public class Field {
 
 	private Long id;

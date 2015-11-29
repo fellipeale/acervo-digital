@@ -5,9 +5,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.annotations.Where;
 import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
+@Where(clause = "active = 1")
 public class Library {
 
 	private Long id;

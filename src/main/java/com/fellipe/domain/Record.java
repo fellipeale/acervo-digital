@@ -12,9 +12,11 @@ import javax.persistence.OneToMany;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.annotations.Where;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
+@Where(clause = "active = 1")
 public class Record {
 
 	private Long id;
@@ -23,6 +25,8 @@ public class Record {
 	@NotEmpty
 	@Valid
 	private List<Content> contents;
+	@NotNull
+	private Boolean active;
 
 	@Id
 	@GeneratedValue
@@ -52,6 +56,14 @@ public class Record {
 
 	public void setContents(List<Content> contents) {
 		this.contents = contents;
+	}
+
+	public Boolean getActive() {
+		return active;
+	}
+
+	public void setActive(Boolean active) {
+		this.active = active;
 	}
 
 }
