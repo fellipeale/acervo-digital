@@ -13,6 +13,4 @@ public interface RecordRepository extends CrudRepository<Record, Long> {
 
 	List<Record> findByLibraryId(@Param("id") Long id);
 	
-  // List<Record> findByPresentationTrueAndLibraryId(@Param("id") Long id);
-
 }

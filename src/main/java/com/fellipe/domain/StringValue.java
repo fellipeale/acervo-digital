@@ -5,12 +5,9 @@ import java.util.List;
 
 import javax.persistence.Entity;
 
-import org.hibernate.validator.constraints.NotEmpty;
-
 @Entity
 public class StringValue extends Value {
 
-	@NotEmpty
 	public String value;
 
 	public String getValue() {
@@ -27,13 +24,13 @@ public class StringValue extends Value {
 		Field field = content.getField();
 		List<String> errors = new ArrayList<String>();
 		
-		if (value.length() == 0) {
+		if (!emptyValue() && field.getDefaultValue() != null) {
 			value = field.getDefaultValue();
 		}
-		if (field.getSize() != null && value.length() > field.getSize()) {
+		if (!emptyValue()  && (field.getSize() != null && value.length() > field.getSize())) {
 			errors.add("{value.size}");
 		}
-		if (field.getRestrictions() != null && field.getRestrictions().size() > 0 && !containValue(field.getRestrictions())) {
+		if (!emptyValue() && (field.getRestrictions() != null && field.getRestrictions().size() > 0 && !containValue(field.getRestrictions()))) {
 			errors.add("{value.restriction}");
 		}
 		if (!field.getFieldType().getKey().equals("STRING")) {
@@ -49,8 +46,11 @@ public class StringValue extends Value {
 				return true;
 			}
 		}
-		
 		return false;
 	}
 
+	private boolean emptyValue() {
+		return value == null || value.length() == 0;
+	}
+	
 }

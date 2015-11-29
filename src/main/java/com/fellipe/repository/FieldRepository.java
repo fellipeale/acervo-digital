@@ -11,7 +11,7 @@ import com.fellipe.domain.Field;
 @RepositoryRestResource(collectionResourceRel = "fields", path = "fields")
 public interface FieldRepository extends CrudRepository<Field, Long> {
 
-	List<Field> findByLibraryId(@Param("id") Long id);
+	List<Field> findByLibraryIdOrderBySequenceAsc(@Param("id") Long id);
 	
 	List<Field> findByPresentationTrueAndLibraryId(@Param("id") Long id);
 	

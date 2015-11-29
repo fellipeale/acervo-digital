@@ -14,7 +14,13 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
 @Entity
 @JsonTypeInfo(property = "type", use = NAME, include = PROPERTY)
-@JsonSubTypes({ @JsonSubTypes.Type(value = StringValue.class, name = "STRING") })
+@JsonSubTypes({ @JsonSubTypes.Type(value = StringValue.class, name = "STRING"),
+				@JsonSubTypes.Type(value = DateValue.class, name = "DATE"),
+				@JsonSubTypes.Type(value = NumericValue.class, name = "NUMERIC"),
+				@JsonSubTypes.Type(value = ImageValue.class, name = "IMAGE"),
+				@JsonSubTypes.Type(value = VideoValue.class, name = "VIDEO"),
+				@JsonSubTypes.Type(value = AudioValue.class, name = "AUDIO"),
+				@JsonSubTypes.Type(value = DocumentValue.class, name = "DOCUMENT")})
 public abstract class Value {
 
 	private Long id;

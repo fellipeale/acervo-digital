@@ -29,7 +29,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fellipe.domain.Content;
 import com.fellipe.domain.Field;
-import com.fellipe.domain.FieldType;
 import com.fellipe.domain.Library;
 import com.fellipe.domain.Record;
 import com.fellipe.domain.StringValue;
@@ -39,6 +38,7 @@ import com.fellipe.domain.Value;
 @SpringApplicationConfiguration(classes = Application.class)
 @WebAppConfiguration
 @ActiveProfiles("scratch")
+@Ignore
 public class ApplicationRecordTest {
 
 	@Autowired
