@@ -27,7 +27,7 @@ import org.springframework.web.multipart.MultipartFile;
 @Controller
 public class FileController {
 
-	private String basePath = "/tmp/acervo-digital";
+	private String basePath = "/var/tmp/acervo-digital";
 
 	@RequestMapping(value = "/upload", method = RequestMethod.GET)
 	public @ResponseBody String provideUploadInfo() {
